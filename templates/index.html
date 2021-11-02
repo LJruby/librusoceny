@@ -1,0 +1,30 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background: #e8f1f9; }
+	</style>
+{% endblock %}
+
+{% block title %}
+Oceny z librusa
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-auto col-lg-auto mx-lg-auto mx-md-auto">
+      <h1 class="pt-5 pb-2">Witaj użytkowniku librusa!</h1>
+      <p class="lead">Jeśli często odwiedzasz stronę <a href="https://synergia.librus.pl/przegladaj_oceny/uczen">https://synergia.librus.pl/przegladaj_oceny/uczen</a> i brakuje Ci tam sortowania ocen po datach ze szczegółami, to moja apka może się przydać :)<br>Kod źródłowy na <a href="https://github.com/LJruby/librusoceny">https://github.com/LJruby/librusoceny</a>, żeby nie było, że KRADNOM HASŁA!<br>Pozdrawiam kurła!<br>Janusz T.</p>
+      {{ wtf.quick_form(form) }}
+      <p><br></p>
+      {% for ocenka in ocenki %}
+        <p>{{ ocenka }}</p>
+      {% endfor %}
+      <p><br></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
