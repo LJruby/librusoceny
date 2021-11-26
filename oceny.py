@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired
 import requests
 import sys
 import re
+import os
 from bs4 import BeautifulSoup
 
 class NameForm(FlaskForm):
@@ -34,7 +35,7 @@ def do_login(login, password):
       return lines
           
 oceny=Flask(__name__)
-oceny.config['SECRET_KEY'] = 'C2HWGVoMGfNTBsrYQg8EcMrdTimkZfAc'
+oceny.config['SECRET_KEY'] = os.urandom(12).hex()
 Bootstrap(oceny)
 
 @oceny.route("/", methods=['GET', 'POST'])
