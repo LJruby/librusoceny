@@ -10,9 +10,11 @@ import os
 from bs4 import BeautifulSoup
 
 class NameForm(FlaskForm):
+    class Meta:
+      csrf = False
     name1 = StringField('Login do librusa', validators=[DataRequired()])
     name2 = StringField('Hasło', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Jeszcze tylko manto i wakacje :)')
 
 def do_login(login, password):
     session = requests.session()
